@@ -1,5 +1,5 @@
 # recursive-change-keys
-A small npm module that let the user change keys of an object recursively.
+A small npm module that let the user change keys of an object recursively and return a new object.
 
 ## Installation
 
@@ -8,7 +8,7 @@ A small npm module that let the user change keys of an object recursively.
 ## Usage
 
     var recursiveChangeKeys = require("recursive-change-keys");
-    recursiveChangeKeys(obj, {oldkey1: "newkey1", oldkey2: "newkey2"});
+    obj = recursiveChangeKeys(obj, {oldkey1: "newkey1", oldkey2: "newkey2"});
     console.log(obj);
 
 ## Tests
