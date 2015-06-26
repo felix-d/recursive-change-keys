@@ -1,0 +1,26 @@
+{
+  "name": "recursive-change-keys",
+  "version": "0.0.0",
+  "description": "Let the user change keys of an object recursively.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/felix-d/recursive-change-keys.git"
+  },
+  "keywords": [
+    "recursive",
+    "change",
+    "key",
+    "keys",
+    "object"
+  ],
+  "author": "Felix Descoteaux <flx.descoteaux@gmail.com> (http://httplambda.com/)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/felix-d/recursive-change-keys/issues"
+  },
+  "homepage": "https://github.com/felix-d/recursive-change-keys"
+}
