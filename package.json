@@ -1,6 +1,6 @@
 {
   "name": "recursive-change-keys",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Let the user change keys of an object recursively.",
   "main": "index.js",
   "scripts": {
@@ -18,9 +18,14 @@
     "object"
   ],
   "author": "Felix Descoteaux <flx.descoteaux@gmail.com> (http://httplambda.com/)",
-  "license": "ISC",
+  "licenses": [
+      {
+      "type": "MIT",
+      "url": "https://github.com/brentertz/scapegoat/blob/master/LICENSE-MIT"
+  }
+  ],  
   "bugs": {
-    "url": "https://github.com/felix-d/recursive-change-keys/issues"
+      "url": "https://github.com/felix-d/recursive-change-keys/issues"
   },
   "homepage": "https://github.com/felix-d/recursive-change-keys",
   "devDependencies": {
