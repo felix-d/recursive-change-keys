@@ -1,5 +1,9 @@
 var cloneDeep = require("lodash.clonedeep");
 
+function escape(text) {
+  return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
+};
+
 /**
  * Traverses an object recursively and substitutes the specified keys for the given values 
  *
@@ -15,7 +19,7 @@ var _recursiveChangeKeys = function(obj, keysToChange){
           // If the key in keysToChange is a regular expression
           if(keysToChange[keyToChange].replace){
 
-            var keyToChangeRe = new RegExp(keyToChange, 'g');
+            var keyToChangeRe = new RegExp(escape(keyToChange), 'g');
             // We replace the matched characters in the old key with the given string
             var newkey = oldkey.replace(keyToChangeRe, keysToChange[keyToChange].value);
             obj[newkey] = obj[oldkey];
