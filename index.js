@@ -15,9 +15,9 @@ var _recursiveChangeKeys = function(obj, keysToChange){
           // If the key in keysToChange is a regular expression
           if(keysToChange[keyToChange].replace){
 
-            keyToChange = new RegExp(keyToChange, 'g');
+            var keyToChangeRe = new RegExp(keyToChange, 'g');
             // We replace the matched characters in the old key with the given string
-            var newkey = oldkey.replace(keyToChange, keysToChange[keyToChange].value);
+            var newkey = oldkey.replace(keyToChangeRe, keysToChange[keyToChange].value);
             obj[newkey] = obj[oldkey];
             delete obj[oldkey];
           }
