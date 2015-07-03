@@ -2,8 +2,7 @@ var equal = require("deep-equal");
 
 describe("recursive-change-keys", function() {
   var recursiveChangeKeys = require('../index');
-  var testObj;
-  var changeKeys;
+  var testObj, changeKeys, changeKeysReplace;
 
   beforeEach(function() {
     testObj = {
@@ -20,7 +19,9 @@ describe("recursive-change-keys", function() {
         }
       }
     };
-    changeKeys = {key1: "newkey", key2: "newkey2"};
+
+    changeKeys = {key1: {value: "newkey"}, key2: {value: "newkey2"}};
+    changeKeysReplace = {".": {value: "_", replace: true}};
   });
 
   it("it should recursively change the right keys", function() {
@@ -41,6 +42,18 @@ describe("recursive-change-keys", function() {
     };
     testObj = recursiveChangeKeys(testObj, changeKeys);
     expect(equal(testObj, success)).toBeTruthy();
+  });
+
+  it("it should recursively change the right keys with a regex", function(){
+    var success = {
+      "key_key": "val"
+    };
+    var testObj2 = {
+      "key.key": "val"
+    };
+    testObj2 = recursiveChangeKeys(testObj2, changeKeysReplace, {replace:true});
+    expect(equal(testObj2, success)).toBeTruthy();
+    
   });
 
 });

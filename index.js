@@ -1,20 +1,34 @@
 var cloneDeep = require("lodash.clonedeep");
+
 /**
  * Traverses an object recursively and substitutes the specified keys for the given values 
  *
  * @param {Object} obj The object in which we want to change the keys
  * @param {Object} keysToChange an object of the form {oldKey1: "newKey1", oldKey2: "newKey2"}
  */
-
 var _recursiveChangeKeys = function(obj, keysToChange){
   if(obj instanceof Object){
     for(var oldkey in obj){
       if(obj.hasOwnProperty(oldkey)){
         for(var keyToChange in keysToChange){
-          if(oldkey === keyToChange && 
-             !obj.hasOwnProperty(keysToChange[keyToChange])){
-            obj[keysToChange[keyToChange]] = obj[oldkey];
+
+          // If the key in keysToChange is a regular expression
+          if(keysToChange[keyToChange].replace){
+
+            // We replace the matched characters in the old key with the given string
+            var newkey = oldkey.replace(keyToChange, keysToChange[keyToChange].value);
+            obj[newkey] = obj[oldkey];
             delete obj[oldkey];
+          }
+          // Else if its just a string
+          else {
+            if(oldkey === keyToChange && 
+               // Lets assure we dont overwrite anything
+               !obj.hasOwnProperty(keysToChange[keyToChange].value)){
+
+              obj[keysToChange[keyToChange].value] = obj[oldkey];
+              delete obj[oldkey];
+            }
           }
         }
         _recursiveChangeKeys(obj[oldkey], keysToChange);
