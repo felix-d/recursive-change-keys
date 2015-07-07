@@ -48,7 +48,7 @@ var _recursiveChangeKeys = function(obj, keysToChange, depth){
 var recursiveChangeKeys = function(obj, keysToChange, maxDepth){
   _maxDepth = maxDepth;
   var newobj = cloneDeep(obj);
-  _recursiveChangeKeys(newobj, keysToChange, 1);
+  _recursiveChangeKeys(newobj, keysToChange, 0);
   return newobj;
 };
 
