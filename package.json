@@ -1,6 +1,6 @@
 {
   "name": "recursive-change-keys",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "Let the user change keys of an object recursively.",
   "main": "index.js",
   "scripts": {
