@@ -24,10 +24,13 @@ var _recursiveChangeKeys = function(obj, keysToChange, depth){
           if(keysToChange[keyToChange].replace){
 
             var keyToChangeRe = new RegExp(escape(keyToChange), 'g');
+
             // We replace the matched characters in the old key with the given string
             var newkey = oldkey.replace(keyToChangeRe, keysToChange[keyToChange].value);
-            obj[newkey] = obj[oldkey];
-            delete obj[oldkey];
+            if(newkey !== oldkey){
+              obj[newkey] = obj[oldkey];
+              delete obj[oldkey];
+            }
           }
           // Else if its just a string
           else {
